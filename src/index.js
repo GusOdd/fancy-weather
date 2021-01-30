@@ -1,4 +1,5 @@
 import './styles/styles.css';
+import { Loader } from '@googlemaps/js-api-loader';
 
 const fetch = require('node-fetch');
 
@@ -12,3 +13,26 @@ function setBackgroundOfBody() {
 }
 
 setBackgroundOfBody();
+
+const currentGeoData = {
+  lat: -34.397,
+  lng: 150.644,
+};
+
+navigator.geolocation.getCurrentPosition((data) => {
+  currentGeoData.lat = data.coords.latitude;
+  currentGeoData.lng = data.coords.longitude;
+});
+
+const loader = new Loader({
+  apiKey: 'AIzaSyAyI_32OuCXuiz43WSoMkQlcdmQOFjnu2k',
+  version: 'weekly',
+});
+
+let map;
+loader.load().then(() => {
+  map = new google.maps.Map(document.querySelector('.geolocation__map'), {
+    center: currentGeoData,
+    zoom: 8,
+  });
+});
