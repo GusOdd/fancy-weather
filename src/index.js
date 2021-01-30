@@ -1,5 +1,5 @@
 import './styles/styles.css';
-import { Loader } from '@googlemaps/js-api-loader';
+// import { Loader } from '@googlemaps/js-api-loader';
 
 const fetch = require('node-fetch');
 
@@ -14,25 +14,39 @@ function setBackgroundOfBody() {
 
 setBackgroundOfBody();
 
-const currentGeoData = {
-  lat: -34.397,
-  lng: 150.644,
-};
+let b;
+function getLocationOfUser() {
+  const apiUrl = 'https://ipinfo.io/json?token=97d1bb595fd2cd';
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      b = data;
+    })
+    .then(() => console.log(b));
+}
 
-navigator.geolocation.getCurrentPosition((data) => {
-  currentGeoData.lat = data.coords.latitude;
-  currentGeoData.lng = data.coords.longitude;
-});
+getLocationOfUser();
+console.log(b);
 
-const loader = new Loader({
-  apiKey: 'AIzaSyAyI_32OuCXuiz43WSoMkQlcdmQOFjnu2k',
-  version: 'weekly',
-});
+// const currentGeoData = {
+//   lat: -34.397,
+//   lng: 150.644,
+// };
 
-let map;
-loader.load().then(() => {
-  map = new google.maps.Map(document.querySelector('.geolocation__map'), {
-    center: currentGeoData,
-    zoom: 8,
-  });
-});
+// const loader = new Loader({
+//   apiKey: '',
+//   version: 'weekly',
+// });
+// const mapOptions = {
+//   center: {
+//     lat: 0,
+//     lng: 0,
+//   },
+//   zoom: 8,
+// };
+
+// let map;
+// loader.load().then(() => {
+//   getCurrentGeoData();
+//   map = new google.maps.Map(document.querySelector('.geolocation__map'), mapOptions);
+// });
