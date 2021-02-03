@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css" rel="stylesheet">
+  <title>Weather</title>
+</head>
+  <body>
+    <div class="wrapper">
+      <div class="control-block">
+        <div class="control-block__settings">
+          <button class="settings__button settings__button_background"></button>
+          <button class="settings__button settings__button_language-en">EN</button><button class="settings__button settings__button_language-ru">RU</button>
+          <button class="settings__button settings__button_units-c"></button><button class="settings__button settings__button_units-f"></button>
+        </div>
+        <div class="control-block__search">
+          <input class="control-block__search_input-field" type="search" placeholder="" autofocus maxlength="30" size="30"><button class="control-block__search_button"></button>
+        </div>
+      </div>
+      <div class="weather-geolocation">
+        <div class="weather">
+          <div class="todays-weather__geolocation"></div>
+          <div class="todays-weather__date-time">
+            <div class="todays-weather__day"></div>
+            <div class="todays-weather__time"></div>
+          </div>
+          <div class="todays-weather__value"></div>
+          <div class="todays-weather__summary-pic">
+            <div class="todays-weather__summary"></div>
+            <div class="todays-weather__pic"></div>
+          </div>
+          <div class="three-days-weather">
+        </div>
+        </div>
+        <div class="geolocation">
+          <div class="geolocation__map"></div>
+          <div class="geolocation__coordinates">
+            <div class="latitude"></div>
+            <div class="longitude"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
