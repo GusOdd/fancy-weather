@@ -1,9 +1,0 @@
-{
-  "extends": "airbnb-base",
-  "rules": {
-    "max-len": "warn",
-    "no-unused-vars": "warn",
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
-  },
-  "env": { "browser": true } 
-}
